@@ -1,0 +1,24 @@
+.stage__head,
+.stage__content {
+  padding: 20px;
+}
+.stage__wrapper {
+  margin-bottom: 20px;
+}
+.stage__head {
+  display: flex;
+  justify-content: space-between;
+}
+.toggle-button {
+  width: 82px;
+}
+.stage__name {
+  display: flex;
+  align-items: center;
+}
+.step__head-info {
+  display: flex;
+  flex-basis: 300px;
+  justify-content: space-between;
+  align-items: center;
+}

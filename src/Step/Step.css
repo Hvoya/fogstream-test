@@ -1,0 +1,32 @@
+.step__head {
+  display: flex;
+  justify-content: space-between;
+  flex-basis: 280px;
+
+  margin-right: 20px;
+}
+.step {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 15px;
+  border-bottom: 1px solid lightblue;
+
+  min-height: 100px;
+}
+.step__content {
+  display: flex;
+
+  flex-basis: 530px;
+  justify-content: flex-start;
+  align-items: center;
+}
+.step__name {
+  flex-basis: 300px;
+  display: flex;
+  align-items: center;
+}
+.step__time {
+  display: flex;
+  align-items: center;
+}

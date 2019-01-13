@@ -1,0 +1,38 @@
+.backdrop {
+  position: fixed;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  background-color: rgba(0, 0, 0, 0.3);
+
+  z-index: 999;
+}
+.form__wrapper {
+  min-width: 300px;
+  min-height: 300px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+h2 {
+  text-align: center;
+
+  margin: 0 auto 8px;
+}
+form {
+  margin-top: 25px;
+  margin-bottom: 30px;
+}
+.create-element-form {
+  margin-bottom: 8px;
+}
