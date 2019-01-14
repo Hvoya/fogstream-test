@@ -2,16 +2,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you should run:
 
-### `npm install` 
-
-or 
-
-### `yarn install` 
+### `npm install` or ### `yarn install` 
 
 and then 
 
-### `npm start` 
-
-or 
-
-### `yarn start` 
+### `npm start` or ### `yarn start` 
