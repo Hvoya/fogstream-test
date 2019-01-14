@@ -125,11 +125,11 @@ class Step extends React.Component<IStepProps & IStepSourceCollectedProps & ISte
     let newData: IData;
     if (jsonData) {
       newData = JSON.parse(jsonData);
-      console.log(newData);
       const stageIndex = newData.stages.findIndex((stage: IStage) => stage.id === this.props.stageId);
       const stepIndex = newData.stages[stageIndex].steps.findIndex((step: IStep) => step.id === this.props.id);
+      console.log(newData.stages[stageIndex]);
 
-      newData.stages[stageIndex].steps[stepIndex].elements = newElements;// не представляю, что ему тут может не нравиться, очень странно
+      newData.stages[stageIndex].steps[stepIndex].elements = newElements; // не представляю, что ему тут может не нравиться, очень странно
       newData.stages[stageIndex].steps[stepIndex].time = this.state.time + time;
 
       this.props.timeHandleChange(time, stageIndex);

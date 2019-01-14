@@ -147,14 +147,15 @@ class Stage extends React.Component<
   };
   private createStep = (name: string) => {
     const newSteps = [...this.state.steps];
-    newSteps.push({ name, id: nanoid(8), elements: [] });
+    const id = nanoid(8);
+    newSteps.push({ name, id, elements: [] });
 
     const jsonData = localStorage.getItem("constructor");
     let newData;
     if (jsonData) {
       newData = JSON.parse(jsonData);
       const index = newData.stages.findIndex((stage: IStage) => stage.id === this.props.id);
-      newData.stages[index].steps.push({ name, id: nanoid(), elements: [] });
+      newData.stages[index].steps.push({ name, id, elements: [] });
       localStorage.setItem("constructor", JSON.stringify(newData));
     }
 
