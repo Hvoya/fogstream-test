@@ -14,6 +14,7 @@ import { Fab } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 
 import { IData, IElement, IStage, IStep } from "src/interfacex";
+import { secondsToHours } from "src/secondsToHours";
 import Element from "../Element/Element";
 import CreateElementForm from "../Forms/CreateElementForm";
 import "./Step.css";
@@ -73,15 +74,12 @@ class Step extends React.Component<IStepProps & IStepSourceCollectedProps & ISte
     const { elements, newElementFormToggled, time } = this.state;
     const opacity = isDragging ? 0 : 1;
 
-    const hours = Math.floor(time / 60);
-    const minutes = time % 60;
-
     return connectDragSource(
       connectDropTarget(
         <div style={{ opacity }} className="step">
           <div className="step__head">
             <div className="step__name">{name}</div>
-            <div className="step__time">{`${hours === 0 ? "00" : hours}:${minutes === 0 ? "00" : minutes}`}</div>
+            <div className="step__time">{secondsToHours(time)}</div>
           </div>
           <div className="step__content">
             {elements
@@ -129,7 +127,7 @@ class Step extends React.Component<IStepProps & IStepSourceCollectedProps & ISte
       const stepIndex = newData.stages[stageIndex].steps.findIndex((step: IStep) => step.id === this.props.id);
       console.log(newData.stages[stageIndex]);
 
-      newData.stages[stageIndex].steps[stepIndex].elements = newElements; // не представляю, что ему тут может не нравиться, очень странно
+      newData.stages[stageIndex].steps[stepIndex].elements = newElements;
       newData.stages[stageIndex].steps[stepIndex].time = this.state.time + time;
 
       this.props.timeHandleChange(time, stageIndex);

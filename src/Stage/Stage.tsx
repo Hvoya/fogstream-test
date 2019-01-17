@@ -15,6 +15,7 @@ import { Button, Paper, Theme, withStyles } from "@material-ui/core";
 import { Classes } from "jss";
 import { CreateStepForm } from "src/Forms/CreateStepForm";
 import { IStage, IStep } from "src/interfacex";
+import { secondsToHours } from "src/secondsToHours";
 import Step from "../Step/Step";
 import "./Stage.css";
 
@@ -73,9 +74,6 @@ class Stage extends React.Component<
     const { steps, time } = this.state;
     const opacity = isDragging ? 0 : 1;
 
-    const hours = Math.floor(time / 60);
-    const minutes = time % 60;
-
     return connectDragSource(
       connectDropTarget(
         <div style={{ opacity }} className="stage">
@@ -83,7 +81,7 @@ class Stage extends React.Component<
             <div className="stage__head">
               <div className="step__head-info">
                 <div className="stage__name">{name}</div>
-                <div className="stage__time">{`${hours === 0 ? "00" : hours}:${minutes === 0 ? "00" : minutes}`}</div>
+                <div className="stage__time">{secondsToHours(time)}</div>
               </div>
               <Button
                 className={this.props.classes!.button}

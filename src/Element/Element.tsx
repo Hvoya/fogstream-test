@@ -11,6 +11,7 @@ import {
 } from "react-dnd";
 
 import { Fab, Paper } from "@material-ui/core";
+import { secondsToHours } from "src/secondsToHours";
 import "./Element.css";
 
 interface IElementProps {
@@ -45,18 +46,13 @@ class Element extends React.Component<
     const { name, assigned, isDragging, connectDragSource, connectDropTarget, time } = this.props;
     const opacity = isDragging ? 0 : 1;
 
-    const hours = Math.floor(time / 60);
-    const minutes = time % 60;
-
-    // ночь не спал, не в сидах довести валидацию везде до конца и вынести ее отдельной функцией
-
     return connectDragSource(
       connectDropTarget(
         <div className="element__wrapper">
           {!this.state.toggleTime ? (
             <div className="data-box">
               <Paper>
-                <div className="element__time">{`${hours === 0 ? "00" : hours}:${minutes === 0 ? "00" : minutes}`}</div>
+                <div className="element__time">{secondsToHours(time)}</div>
                 <div className="element__name">{name}</div>
                 <div className="element__assigned">{assigned}</div>
               </Paper>
