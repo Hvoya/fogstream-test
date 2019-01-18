@@ -6,7 +6,7 @@ interface IBackDropProps {
 }
 
 export const BackDrop = ({ children, toggle }: IBackDropProps) => (
-  <div onClick={toggle} className="backdrop">
+  <div onDrag={e => e.stopPropagation()} onClick={toggle} className="backdrop">
     {children}
   </div>
 );

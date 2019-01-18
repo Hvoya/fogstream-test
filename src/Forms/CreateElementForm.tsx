@@ -11,6 +11,10 @@ interface ICreateElementFormProps {
   classes: Classes;
 }
 const styles = () => ({
+  createElementButton: {
+    display: "block",
+    margin: " 0 auto 15px"
+  },
   textField: {
     display: "block",
     margin: "0 auto 15px"
@@ -74,6 +78,7 @@ class CreateElementForm extends React.Component<ICreateElementFormProps, ICreate
             </div>
           </form>
           <Button
+            className={classes.createElementButton}
             variant="contained"
             color="primary"
             onClick={() => {
